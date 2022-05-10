@@ -1,26 +1,55 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  AppShell,
+  ColorScheme,
+  ColorSchemeProvider,
+  MantineProvider,
+} from "@mantine/core";
+import raw_projects from "./projects.json";
+import { useEffect, useState } from "react";
+import { useLocalStorageValue } from "@mantine/hooks";
+import MyHeader from "./components/MyHeader";
+import { ProjectType } from "myTypes";
+import ProjectCards from "./components/ProjectCards";
 
-function App() {
+export default function App() {
+  const [projects, setProjects] = useState<ProjectType[]>([]);
+
+  useEffect(() => {
+    setProjects(raw_projects.projects);
+  }, []);
+
+  const [colorScheme, setColorScheme] = useLocalStorageValue<ColorScheme>({
+    key: "mantine-color-scheme",
+    defaultValue: "light",
+  });
+
+  function toggleColorScheme(value?: ColorScheme) {
+    setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
+    console.log(colorScheme);
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <ColorSchemeProvider
+      colorScheme={colorScheme}
+      toggleColorScheme={toggleColorScheme}
+    >
+      <MantineProvider theme={{ colorScheme }}>
+        <AppShell
+          padding="md"
+          header={<MyHeader />}
+          styles={(theme) => ({
+            main: {
+              backgroundColor:
+                theme.colorScheme === "dark"
+                  ? theme.colors.dark[8]
+                  : theme.colors.gray[0],
+            },
+          })}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <ProjectCards projectList={projects} />
+        </AppShell>
+      </MantineProvider>
+    </ColorSchemeProvider>
   );
 }
-
-export default App;
