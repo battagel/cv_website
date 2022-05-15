@@ -11,6 +11,7 @@ import { useLocalStorageValue } from "@mantine/hooks";
 import MyHeader from "./components/MyHeader";
 import { ProjectType } from "myTypes";
 import ProjectCards from "./components/ProjectCards";
+import MyNavbar from "./components/MyNavbar";
 
 export default function App() {
   const [projects, setProjects] = useState<ProjectType[]>([]);
@@ -29,6 +30,8 @@ export default function App() {
     console.log(colorScheme);
   }
 
+  const [menuOpened, setMenuOpened] = useState<boolean>(false);
+
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
@@ -37,7 +40,9 @@ export default function App() {
       <MantineProvider theme={{ colorScheme }}>
         <AppShell
           padding="md"
-          header={<MyHeader />}
+          header={
+            <MyHeader setMenuOpened={setMenuOpened} menuOpened={menuOpened} />
+          }
           styles={(theme) => ({
             main: {
               backgroundColor:
@@ -46,6 +51,12 @@ export default function App() {
                   : theme.colors.gray[0],
             },
           })}
+          navbarOffsetBreakpoint="sm"
+          asideOffsetBreakpoint="sm"
+          fixed
+          navbar={
+            <MyNavbar setMenuOpened={setMenuOpened} menuOpened={menuOpened} />
+          }
         >
           <ProjectCards projectList={projects} />
         </AppShell>

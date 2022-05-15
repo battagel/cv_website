@@ -20,5 +20,38 @@
       "button_text": "Click Me",
       "button_colour": "blue",
       "date": "26/05/22"
+  },   
+  {
+      "title": "Nericoin",
+      "desc": "Nericoin",
+      "badge": "Go",
+      "badge_colour": "pink",
+      "image_caption": "Image",
+      "image_link": "",
+      "button_text": "Click Me",
+      "button_colour": "blue",
+      "date": "26/05/22"
+  },
+  {
+      "title": "Nericoin",
+      "desc": "Nericoin",
+      "badge": "Go",
+      "badge_colour": "pink",
+      "image_caption": "Image",
+      "image_link": "",
+      "button_text": "Click Me",
+      "button_colour": "blue",
+      "date": "26/05/22"
+  }, 
+  {
+      "title": "Nericoin",
+      "desc": "Nericoin",
+      "badge": "Go",
+      "badge_colour": "pink",
+      "image_caption": "Image",
+      "image_link": "",
+      "button_text": "Click Me",
+      "button_colour": "blue",
+      "date": "26/05/22"
   }]
 }
