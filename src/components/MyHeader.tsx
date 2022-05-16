@@ -3,7 +3,6 @@ import {
   Header,
   MediaQuery,
   Text,
-  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { MenuOpenedProps } from "myTypes";
@@ -32,7 +31,7 @@ export default function MyHeader({
               theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
           })}
         >
-          Hi, Im Matt... version 1.0.0
+          Hi, Im Matt...
         </Title>
 
         <ThemeButton />
