@@ -32,7 +32,7 @@ export default function MyHeader({
               theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
           })}
         >
-          Hi, Im Matt...
+          Hi, Im Matt... version 1.0.0
         </Title>
 
         <ThemeButton />
