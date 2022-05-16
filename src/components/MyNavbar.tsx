@@ -21,7 +21,7 @@ export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
   return (
     <Navbar
       p="md"
-      hiddenBreakpoint="sm"
+      hiddenBreakpoint={950}
       hidden={!menuOpened}
       width={{ sm: 200 }}
     >

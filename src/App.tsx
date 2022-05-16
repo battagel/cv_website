@@ -33,12 +33,20 @@ export default function App() {
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
 
+  const columnBreakpoints: number[] = [950, 1400, 1890, 2100];
+
   return (
     <ColorSchemeProvider
       colorScheme={colorScheme}
       toggleColorScheme={toggleColorScheme}
     >
-      <MantineProvider theme={{ colorScheme }}>
+      <MantineProvider
+        theme={{
+          colorScheme,
+          other: { columnBreakpoints: columnBreakpoints },
+        }}
+      >
+        {" "}
         <AppShell
           padding="md"
           header={
@@ -52,8 +60,7 @@ export default function App() {
                   : theme.colors.gray[0],
             },
           })}
-          navbarOffsetBreakpoint="sm"
-          asideOffsetBreakpoint="sm"
+          navbarOffsetBreakpoint={950}
           fixed
           navbar={
             <MyNavbar setMenuOpened={setMenuOpened} menuOpened={menuOpened} />
