@@ -12,7 +12,7 @@ import MyHeader from "./components/MyHeader";
 import { ProjectType } from "myTypes";
 import ProjectCards from "./components/ProjectCards";
 import MyNavbar from "./components/MyNavbar";
-import MyFooter from "./components/MyFooter";
+import ScrollAffix from "./components/ScrollAffix";
 
 export default function App() {
   const [projects, setProjects] = useState<ProjectType[]>([]);
@@ -60,7 +60,7 @@ export default function App() {
           }
         >
           <ProjectCards projectList={projects} />
-          <MyFooter />
+          <ScrollAffix />
         </AppShell>
       </MantineProvider>
     </ColorSchemeProvider>
