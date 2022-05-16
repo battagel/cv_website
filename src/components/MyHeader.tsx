@@ -3,6 +3,7 @@ import {
   Header,
   MediaQuery,
   Text,
+  Title,
   useMantineTheme,
 } from "@mantine/core";
 import { MenuOpenedProps } from "myTypes";
@@ -14,9 +15,9 @@ export default function MyHeader({
 }: MenuOpenedProps) {
   const theme = useMantineTheme();
   return (
-    <Header height={60} p="md">
+    <Header height={300} p="md">
       <div style={{ display: "flex", alignItems: "center", height: "100%" }}>
-        <MediaQuery largerThan="sm" styles={{ display: "none" }}>
+        <MediaQuery largerThan="md" styles={{ display: "none" }}>
           <Burger
             opened={menuOpened}
             onClick={() => setMenuOpened((o: boolean) => !o)}
@@ -25,17 +26,16 @@ export default function MyHeader({
             mr="xl"
           />
         </MediaQuery>
-        <Text
+        <Title
           sx={(theme) => ({
             color:
               theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
           })}
         >
-          Matthew Battagel
-        </Text>
-        <div style={{}}>
-          <ThemeButton />
-        </div>
+          Hi, Im Matt...
+        </Title>
+
+        <ThemeButton />
       </div>
     </Header>
   );

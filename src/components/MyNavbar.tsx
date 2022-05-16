@@ -1,19 +1,14 @@
 import {
-  Anchor,
+  Container,
   Group,
   Navbar,
+  Paper,
   Text,
   ThemeIcon,
   UnstyledButton,
 } from "@mantine/core";
 import { MenuOpenedProps } from "myTypes";
-import {
-  GitPullRequest,
-  AlertCircle,
-  Messages,
-  Database,
-  Link,
-} from "tabler-icons-react";
+import { BrandGithub, BrandLinkedin } from "tabler-icons-react";
 
 interface MainLinkProps {
   text: string;
@@ -30,11 +25,35 @@ export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
       hidden={!menuOpened}
       width={{ sm: 200 }}
     >
+      <Container
+        style={{ width: "85%" }}
+        sx={(theme) => ({
+          backgroundColor:
+            theme.colorScheme === "dark"
+              ? theme.colors.dark[9]
+              : theme.colors.gray[0],
+        })}
+      >
+        <Text
+          sx={(theme) => ({
+            color:
+              theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
+          })}
+        >
+          Hi, Im Matt...
+        </Text>
+      </Container>
       <MyNavLink
         text="GitHub"
         link="https://www.github.com/battagel"
-        icon={<GitPullRequest size={16} />}
-        color="Blue"
+        icon={<BrandGithub size={20} />}
+        color="grey"
+      />
+      <MyNavLink
+        text="LinkedIn"
+        link="https://www.linkedin.com/in/matthewbattagel"
+        icon={<BrandLinkedin size={20} />}
+        color="blue"
       />
     </Navbar>
   );
@@ -46,14 +65,14 @@ function MyNavLink({ text, link, icon, color }: MainLinkProps) {
       <UnstyledButton
         sx={(theme) => ({
           display: "block",
-          width: "100%",
+          width: "85%",
           padding: theme.spacing.xs,
           borderRadius: theme.radius.sm,
           color:
             theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
 
           "&:hover": {
-            backgroundColom:
+            backgroundColor:
               theme.colorScheme === "dark"
                 ? theme.colors.dark[6]
                 : theme.colors.gray[0],
@@ -66,7 +85,7 @@ function MyNavLink({ text, link, icon, color }: MainLinkProps) {
           <ThemeIcon color={color} variant="light">
             {icon}
           </ThemeIcon>
-          <Text size="sm">{text}</Text>
+          <Text size="md">{text}</Text>
         </Group>
       </UnstyledButton>
     </Navbar.Section>
