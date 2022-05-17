@@ -23,7 +23,7 @@ export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
       p="md"
       hiddenBreakpoint={950}
       hidden={!menuOpened}
-      width={{ sm: 200 }}
+      width={{ sm: 175 }}
     >
       <Container
         style={{ width: "85%" }}
@@ -40,7 +40,7 @@ export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
               theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
           })}
         >
-          Hi, Im Matt...
+          My Socials Links
         </Text>
       </Container>
       <MyNavLink

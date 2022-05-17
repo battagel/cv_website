@@ -7,6 +7,7 @@ export default function ThemeButton() {
 
   return (
     <ActionIcon
+      mr={15}
       variant="outline"
       color={dark ? "yellow" : "blue"}
       onClick={() => toggleColorScheme()}
