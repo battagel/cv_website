@@ -75,7 +75,15 @@ export default function MyHeader({
             <Center>Hi, Im Matt...</Center>
           </Title>
         </div>
-        <ThemeButton />
+        <div
+          style={{
+            alignSelf: "flex-start",
+            marginRight: "20px",
+            marginTop: "20px",
+          }}
+        >
+          <ThemeButton />
+        </div>
       </div>
     </Header>
   );
