@@ -4,6 +4,7 @@ import {
   ColorScheme,
   ColorSchemeProvider,
   MantineProvider,
+  useMantineTheme,
 } from "@mantine/core";
 import raw_projects from "./projects.json";
 import { useEffect, useState } from "react";
@@ -33,7 +34,7 @@ export default function App() {
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
 
-  const columnBreakpoints: number[] = [950, 1400, 1890, 2100];
+  const columnBreakpoints: number[] = [650, 1200, 1590, 1800];
 
   return (
     <ColorSchemeProvider
@@ -60,7 +61,7 @@ export default function App() {
                   : theme.colors.gray[0],
             },
           })}
-          navbarOffsetBreakpoint={950}
+          navbarOffsetBreakpoint={650}
           fixed
           navbar={
             <MyNavbar setMenuOpened={setMenuOpened} menuOpened={menuOpened} />

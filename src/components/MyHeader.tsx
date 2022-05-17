@@ -20,7 +20,7 @@ export default function MyHeader({
       height={175}
       p={0}
       sx={(theme) => ({
-        "@media (max-width: 950px)": {
+        "@media (max-width: 650px)": {
           height: "150px",
         },
       })}

@@ -11,20 +11,20 @@ import {
 import { ProjectInt, ProjectType } from "myTypes";
 
 export default function ProjectCards({ projectList }: ProjectInt) {
+  const theme = useMantineTheme();
   return (
     <SimpleGrid
       cols={5}
       spacing="lg"
       breakpoints={[
-        { maxWidth: 2100, cols: 4, spacing: "sm" },
-        { maxWidth: 1890, cols: 3, spacing: "sm" },
-        { maxWidth: 1400, cols: 2, spacing: "sm" },
-        { maxWidth: 950, cols: 1, spacing: "sm" },
+        { maxWidth: theme.other.columnBreakpoints[3], cols: 4, spacing: "sm" },
+        { maxWidth: theme.other.columnBreakpoints[2], cols: 3, spacing: "sm" },
+        { maxWidth: theme.other.columnBreakpoints[1], cols: 2, spacing: "sm" },
+        { maxWidth: theme.other.columnBreakpoints[0], cols: 1, spacing: "sm" },
       ]}
     >
       {projectList.map((project: ProjectType) => {
-        console.log(project);
-        return <ProjectCard {...project} />;
+        return <ProjectCard key={project.title} {...project} />;
       })}
     </SimpleGrid>
   );
@@ -44,11 +44,11 @@ function ProjectCard({
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
   return (
-    <div style={{ width: 340, margin: "auto" }}>
-      <Card shadow="sm" p="lg">
-        <Card.Section>
-          <Image src="./image.png" height={160} alt="Image" />
-        </Card.Section>
+    <div style={{ width: "100%", margin: "auto" }}>
+      <Card shadow="sm" p="lg" m="xs">
+        {/*<Card.Section>*/}
+        {/*<Image src="./image.png" height={160} alt="Image" />*/}
+        {/*</Card.Section>*/}
 
         <Group
           position="apart"

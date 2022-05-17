@@ -2,10 +2,10 @@ import {
   Container,
   Group,
   Navbar,
-  Paper,
   Text,
   ThemeIcon,
   UnstyledButton,
+  useMantineTheme,
 } from "@mantine/core";
 import { MenuOpenedProps } from "myTypes";
 import { BrandGithub, BrandLinkedin } from "tabler-icons-react";
@@ -18,10 +18,11 @@ interface MainLinkProps {
 }
 
 export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
+  const theme = useMantineTheme();
   return (
     <Navbar
       p="md"
-      hiddenBreakpoint={950}
+      hiddenBreakpoint={theme.other.columnBreakpoints[0]}
       hidden={!menuOpened}
       width={{ sm: 175 }}
     >
