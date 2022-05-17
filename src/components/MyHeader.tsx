@@ -33,7 +33,7 @@ export default function MyHeader({
               radius="lg"
               width={150}
               height={150}
-              src="/profile-pic.jpg"
+              src="profile-pic.jpg"
               alt="Random unsplash image"
             />
           </div>
@@ -52,7 +52,6 @@ export default function MyHeader({
         </MediaQuery>
         <div style={{ flex: 1 }}>
           <Title
-            order={1}
             sx={(theme) => ({
               color:
                 theme.colorScheme === "dark"
