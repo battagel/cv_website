@@ -113,7 +113,7 @@ function ProjectCard({ name, description, language, html_url }: ProjectType) {
           fullWidth
           style={{ marginTop: 14 }}
         >
-          Click me
+          Visit github
         </Button>
       </Card>
     </div>
