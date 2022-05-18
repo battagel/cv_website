@@ -6,8 +6,3 @@ matthewbattagel.co.uk
 ```
 
 This website is a portfolio for all the github projects I have created.
-
-## To DO
-
-GitHub API integration
-NavBar sections

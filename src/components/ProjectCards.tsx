@@ -57,7 +57,7 @@ export default function ProjectCards() {
         { maxWidth: theme.other.columnBreakpoints[1], cols: 1, spacing: "sm" },
       ]}
     >
-      {loaded === true && (
+      {loaded === false && (
         <>
           <SkeletonCard />
           <SkeletonCard />
