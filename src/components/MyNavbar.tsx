@@ -1,5 +1,5 @@
 import {
-  Container,
+  Paper,
   Group,
   Navbar,
   Text,
@@ -21,29 +21,12 @@ export default function MyNavbar({ menuOpened }: MenuOpenedProps) {
   const theme = useMantineTheme();
   return (
     <Navbar
-      p="md"
+      p="sm"
       hiddenBreakpoint={theme.other.columnBreakpoints[0]}
       hidden={!menuOpened}
-      width={{ sm: 175 }}
+      width={{ base: 175 }}
     >
-      <Container
-        style={{ width: "85%" }}
-        sx={(theme) => ({
-          backgroundColor:
-            theme.colorScheme === "dark"
-              ? theme.colors.dark[9]
-              : theme.colors.gray[0],
-        })}
-      >
-        <Text
-          sx={(theme) => ({
-            color:
-              theme.colorScheme === "dark" ? theme.colors.dark[0] : theme.black,
-          })}
-        >
-          My Socials Links
-        </Text>
-      </Container>
+      <NavHeading text="My Social Links" />
       <MyNavLink
         text="GitHub"
         link="https://www.github.com/battagel"
@@ -90,5 +73,39 @@ function MyNavLink({ text, link, icon, color }: MainLinkProps) {
         </Group>
       </UnstyledButton>
     </Navbar.Section>
+  );
+}
+
+interface NavHeadingProps {
+  text: string;
+}
+
+function NavHeading({ text }: NavHeadingProps) {
+  return (
+    <Paper
+      style={{
+        width: "95%",
+        marginLeft: "auto",
+        marginRight: "auto",
+        marginBottom: "10px",
+      }}
+      sx={(theme) => ({
+        backgroundColor:
+          theme.colorScheme === "dark" ? "#244E79" : theme.colors.blue[0],
+      })}
+    >
+      <Text
+        size="md"
+        style={{ marginLeft: "10px", marginRight: "10px" }}
+        sx={(theme) => ({
+          color:
+            theme.colorScheme === "dark"
+              ? theme.colors.blue[2]
+              : theme.colors.blue[6],
+        })}
+      >
+        {text}
+      </Text>
+    </Paper>
   );
 }

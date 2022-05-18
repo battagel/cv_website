@@ -20,7 +20,7 @@ export default function MyHeader({
       height={175}
       p={0}
       sx={(theme) => ({
-        "@media (max-width: 650px)": {
+        "@media (max-width: 450px)": {
           height: "150px",
         },
       })}
@@ -68,7 +68,7 @@ export default function MyHeader({
                 theme.colorScheme === "dark"
                   ? theme.colors.dark[0]
                   : theme.black,
-              fontSize: "clamp(30px, 10vw, 60px)",
+              fontSize: "clamp(25px, 7vw, 60px)",
               fontFamily: "Noto Serif",
             })}
           >

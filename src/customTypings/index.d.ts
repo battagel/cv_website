@@ -1,14 +1,9 @@
 declare module "myTypes" {
   type ProjectType = {
-    title: string;
-    desc: string;
-    badge: string;
-    badge_colour: string;
-    image_caption: string;
-    image_link: string;
-    button_text: string;
-    button_colour: string;
-    date: string;
+    name: string;
+    description: string;
+    language: string;
+    html_url: string;
   };
 
   interface ProjectInt {
