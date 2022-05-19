@@ -7,7 +7,6 @@ import {
   useMantineTheme,
   Text,
   Skeleton,
-  Space,
 } from "@mantine/core";
 import { ProjectType } from "myTypes";
 import { useEffect, useState } from "react";
@@ -116,7 +115,7 @@ function ProjectCard({ name, description, language, html_url }: ProjectType) {
           position="apart"
           style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
         >
-          <Text weight={500}>{name}</Text>
+          <Text weight={500}>{normaliseTitle(name)}</Text>
           <Badge color="pink" variant="light">
             {language}
           </Badge>
@@ -139,6 +138,18 @@ function ProjectCard({ name, description, language, html_url }: ProjectType) {
     </div>
   );
 }
+
+function normaliseTitle(name: string) {
+  var words: string[] = name.split("_");
+  for (var i: number = 0; i < words.length; i++) {
+    words[i] = CapitalizeWord(words[i]);
+  }
+  return words.join(" ");
+}
+
+const CapitalizeWord = (str: string) => {
+  return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : str;
+};
 
 function SkeletonCard() {
   return (

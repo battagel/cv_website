@@ -100,7 +100,7 @@ function NavHeading({ text }: NavHeadingProps) {
         sx={(theme) => ({
           color:
             theme.colorScheme === "dark"
-              ? theme.colors.blue[2]
+              ? theme.colors.blue[1]
               : theme.colors.blue[6],
         })}
       >
