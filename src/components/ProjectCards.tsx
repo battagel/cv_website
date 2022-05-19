@@ -16,6 +16,7 @@ export default function ProjectCards() {
   const theme = useMantineTheme();
 
   const [projects, setProjects] = useState<ProjectType[]>([]);
+  const [starred, setStarred] = useState<ProjectType[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
   useEffect(() => {
     fetch("https://api.github.com/users/battagel/repos")
@@ -37,15 +38,34 @@ export default function ProjectCards() {
             tempProjectList = [...tempProjectList, subset];
           });
           setProjects(tempProjectList);
-          setLoaded(true);
         },
         (error) => {
           console.log(error);
         }
       );
+    fetch("https://api.github.com/users/battagel/starred")
+      .then((res) => res.json())
+      .then((result: any) => {
+        console.log(result);
+        var tempProjectList: ProjectType[] = [];
+        console.log(tempProjectList);
+        //sleep(100);
+        result.map((project: any) => {
+          const { name, description, language, html_url, ...theRest } = project;
+          const subset: ProjectType = {
+            name,
+            description,
+            language,
+            html_url,
+          };
+          tempProjectList = [...tempProjectList, subset];
+        });
+        setStarred(tempProjectList);
+        setLoaded(true);
+      });
   }, []);
-  console.log(loaded);
 
+  const combined_projects: ProjectType[] = [...projects, ...starred];
   return (
     <SimpleGrid
       cols={5}
@@ -64,7 +84,7 @@ export default function ProjectCards() {
           <SkeletonCard />
         </>
       )}
-      {projects.map((project: ProjectType) => {
+      {combined_projects.map((project: ProjectType) => {
         return <ProjectCard key={project.name} {...project} />;
       })}
     </SimpleGrid>
