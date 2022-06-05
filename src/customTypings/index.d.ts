@@ -4,6 +4,7 @@ declare module "myTypes" {
     description: string;
     language: string;
     html_url: string;
+    homepage: string;
   };
 
   interface ProjectInt {

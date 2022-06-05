@@ -25,7 +25,7 @@ export default function App() {
 
   const [menuOpened, setMenuOpened] = useState<boolean>(false);
 
-  const columnBreakpoints: number[] = [450, 650, 1000, 1390, 1600];
+  const columnBreakpoints: number[] = [450, 800, 1100, 1390, 1600];
 
   return (
     <ColorSchemeProvider

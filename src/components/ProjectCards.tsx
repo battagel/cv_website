@@ -7,6 +7,7 @@ import {
   useMantineTheme,
   Text,
   Skeleton,
+  Stack,
 } from "@mantine/core";
 import { ProjectType } from "myTypes";
 import { useEffect, useState } from "react";
@@ -17,6 +18,7 @@ export default function ProjectCards() {
   const [projects, setProjects] = useState<ProjectType[]>([]);
   const [starred, setStarred] = useState<ProjectType[]>([]);
   const [loaded, setLoaded] = useState<boolean>(false);
+
   useEffect(() => {
     fetch("https://api.github.com/users/battagel/repos")
       .then((res) => res.json())
@@ -26,13 +28,20 @@ export default function ProjectCards() {
           var tempProjectList: ProjectType[] = [];
           //sleep(100);
           result.map((project: any) => {
-            const { name, description, language, html_url, ...theRest } =
-              project;
+            const {
+              name,
+              description,
+              language,
+              html_url,
+              homepage,
+              ...theRest
+            } = project;
             const subset: ProjectType = {
               name,
               description,
               language,
               html_url,
+              homepage,
             };
             tempProjectList = [...tempProjectList, subset];
           });
@@ -50,12 +59,20 @@ export default function ProjectCards() {
         console.log(tempProjectList);
         //sleep(100);
         result.map((project: any) => {
-          const { name, description, language, html_url, ...theRest } = project;
+          const {
+            name,
+            description,
+            language,
+            html_url,
+            homepage,
+            ...theRest
+          } = project;
           const subset: ProjectType = {
             name,
             description,
             language,
             html_url,
+            homepage,
           };
           tempProjectList = [...tempProjectList, subset];
         });
@@ -98,7 +115,13 @@ function sleep(milliseconds: number) {
   } while (currentDate - date < milliseconds);
 }
 
-function ProjectCard({ name, description, language, html_url }: ProjectType) {
+function ProjectCard({
+  name,
+  description,
+  language,
+  html_url,
+  homepage,
+}: ProjectType) {
   const theme = useMantineTheme();
 
   const secondaryColor =
@@ -106,46 +129,58 @@ function ProjectCard({ name, description, language, html_url }: ProjectType) {
 
   return (
     <div style={{ width: "100%", margin: "auto" }}>
-      <Card shadow="sm" p="lg" m="xs">
-        {/*<Card.Section>*/}
-        {/*<Image src="./image.png" height={160} alt="Image" />*/}
-        {/*</Card.Section>*/}
+      <Card shadow="sm" p="lg" m="xs" style={{ height: "260px" }}>
+        <Stack justify="space-between">
+          <Group
+            position="apart"
+            style={{
+              marginBottom: 5,
+              marginTop: theme.spacing.sm,
+            }}
+          >
+            <Text weight={500}>{normaliseTitle(name)}</Text>
+            <Badge color="pink" variant="light">
+              {language}
+            </Badge>
+          </Group>
 
-        <Group
-          position="apart"
-          style={{ marginBottom: 5, marginTop: theme.spacing.sm }}
-        >
-          <Text weight={500}>{normaliseTitle(name)}</Text>
-          <Badge color="pink" variant="light">
-            {language}
-          </Badge>
-        </Group>
+          <Text
+            size="sm"
+            style={{
+              color: secondaryColor,
+              lineHeight: 1.5,
+            }}
+          >
+            {description}
+          </Text>
 
-        <Text size="sm" style={{ color: secondaryColor, lineHeight: 1.5 }}>
-          {description}
-        </Text>
-
-        <Button
-          component="a"
-          href={html_url}
-          variant="light"
-          fullWidth
-          style={{ marginTop: 14 }}
-        >
-          Visit github
-        </Button>
+          <Button component="a" href={html_url} variant="light" fullWidth>
+            Visit github
+          </Button>
+          {homepage && (
+            <Button
+              component="a"
+              href={homepage}
+              variant="light"
+              fullWidth
+              color="grape"
+            >
+              Visit website
+            </Button>
+          )}
+        </Stack>
       </Card>
     </div>
   );
 }
 
-function normaliseTitle(name: string) {
+const normaliseTitle = (name: string) => {
   var words: string[] = name.split("_");
   for (var i: number = 0; i < words.length; i++) {
     words[i] = CapitalizeWord(words[i]);
   }
   return words.join(" ");
-}
+};
 
 const CapitalizeWord = (str: string) => {
   return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : str;
