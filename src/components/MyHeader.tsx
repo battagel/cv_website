@@ -72,7 +72,7 @@ export default function MyHeader({
               fontFamily: "Noto Serif",
             })}
           >
-            <Center>Hi, Im Matt...</Center>
+            <Center>Hi, I'm Matt...</Center>
           </Title>
         </div>
         <div
