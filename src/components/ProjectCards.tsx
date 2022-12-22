@@ -155,7 +155,7 @@ function ProjectCard({
           </Text>
 
           <Button component="a" href={html_url} variant="light" fullWidth>
-            Visit github
+            Visit GitHub
           </Button>
           {homepage && (
             <Button
@@ -165,7 +165,7 @@ function ProjectCard({
               fullWidth
               color="grape"
             >
-              Visit website
+              Visit Website
             </Button>
           )}
         </Stack>
@@ -175,15 +175,32 @@ function ProjectCard({
 }
 
 const normaliseTitle = (name: string) => {
-  var words: string[] = name.split("_");
+  let underscore_split: string[] = name.split("_")
+  let words: string[] = []
+  for (var i: number = 0; i < underscore_split.length; i++) {
+    let hyphen_split: string[] = underscore_split[i].split("-")
+    for (var j: number = 0; j < hyphen_split.length; j++) {
+      words.push(hyphen_split[j])      
+    }
+  }
   for (var i: number = 0; i < words.length; i++) {
     words[i] = CapitalizeWord(words[i]);
   }
   return words.join(" ");
 };
 
-const CapitalizeWord = (str: string) => {
-  return str.length ? str.charAt(0).toUpperCase() + str.slice(1) : str;
+const CapitalizeWord = (word: string) => {
+  if (word === "cv") {
+      // Rare exception
+      return word.toUpperCase()
+    }
+  else if (word.length > 2) {
+    console.log(word)
+    return word.length ? word.charAt(0).toUpperCase() + word.slice(1) : word;
+    }
+  else {
+      return word
+    }
 };
 
 function SkeletonCard() {
