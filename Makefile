@@ -1,4 +1,5 @@
 NPM := npm
+YARN := yarn
 
 NAME := cv_website
 
@@ -7,18 +8,12 @@ NAME := cv_website
 help:
 	@fgrep -h '##' $(MAKEFILE_LIST) | fgrep -v fgrep | column -t -s ':' | sed -e 's/## //'
 
-## build: Create the binary
-.PHONY: build
+## install: Install all dependencies
+.PHONY: install
 build:
-	@$(GO) build -o $(BIN_DIR)/$(NAME) -mod=vendor $(MAIN_LOCATION)
+	@$(YARN) install
 
 ## run: Run the binary
 .PHONY: run
-run:
-	@$(NPM) run dev
-
-## vendor: Download the vendored dependencies
-.PHONY: vendor
-vendor:
-	@$(GO) mod tidy
-	@$(GO) mod vendor
+run: install
+	@$(YARN) run dev

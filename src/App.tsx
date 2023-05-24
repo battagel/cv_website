@@ -97,6 +97,6 @@ export default function App() {
                     <ScrollAffix />
                 </AppShell>
             </MantineProvider>
-        </ColorSchemeProvider>
+        </ColorSchemeProvider >
     );
 }

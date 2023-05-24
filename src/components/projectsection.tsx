@@ -21,7 +21,6 @@ export default function ProjectCards() {
             .then((res) => res.json())
             .then(
                 (result: any) => {
-                    console.log(result);
                     var tempProjectList: Project[] = [];
                     //sleep(100);
                     result.map((project: any) => {
@@ -51,9 +50,7 @@ export default function ProjectCards() {
         fetch("https://api.github.com/users/battagel/starred")
             .then((res) => res.json())
             .then((result: any) => {
-                console.log(result);
                 var tempProjectList: Project[] = [];
-                console.log(tempProjectList);
                 //sleep(100);
                 result.map((project: any) => {
                     const {
@@ -81,6 +78,7 @@ export default function ProjectCards() {
     const combined_projects: Project[] = [...projects, ...starred];
     return (
         <SimpleGrid
+            id="projects"
             cols={5}
             spacing="lg"
             breakpoints={[

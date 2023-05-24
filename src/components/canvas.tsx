@@ -7,12 +7,13 @@ const Canvas = () => {
     const numberOfSquares = 150;
     const averageSize = 30;
     const sizeChange = 40;
-    const squareColour = theme.colorScheme === 'dark' ? "white" : "black"
-    const canvasColour = theme.colorScheme === 'dark' ? "black" : "white"
     const maxSpeed = 1;
     const maxRotationSpeed = 0.01;
 
     useEffect(() => {
+        const squareColour = theme.colorScheme === 'dark' ? "white" : "gray";
+        const canvasColour = theme.colorScheme === 'dark' ? "gray" : "white";
+
         const canvas = canvasRef.current;
         if (canvas) {
             const context = canvas.getContext("2d");
@@ -36,7 +37,15 @@ const Canvas = () => {
                         context.translate(square.x + square.size / 2, square.y + square.size / 2);
                         context.rotate(square.rotation);
                         context.strokeStyle = squareColour;
-                        context.strokeRect(-square.size / 2, -square.size / 2, square.size, square.size);
+                        if (theme.colorScheme === 'dark') {
+                            // draw circle in dark mode
+                            context.beginPath();
+                            context.arc(0, 0, square.size / 2, 0, Math.PI * 2);
+                            context.stroke();
+                        } else {
+                            // draw square in light mode
+                            context.strokeRect(-square.size / 2, -square.size / 2, square.size, square.size);
+                        }
                         context.restore();
                     });
                 }
@@ -65,7 +74,7 @@ const Canvas = () => {
 
             loop();
         }
-    }, []);
+    }, [theme.colorScheme]);
 
     return (
         <canvas

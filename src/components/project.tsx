@@ -8,6 +8,13 @@ export type Project = {
     homepage: string;
 };
 
+const languageColorMap = new Map([
+    ["python", "blue"],
+    ["tex", "red"],
+    ["go", "lightblue"],
+    ["cpp", "green"],
+]);
+
 export function ProjectCard({
     name,
     description,
@@ -32,7 +39,7 @@ export function ProjectCard({
                         }}
                     >
                         <Text weight={500}>{normaliseTitle(name)}</Text>
-                        <Badge color="pink" variant="light">
+                        <Badge color={languageColorMap.get(language)} variant="light">
                             {language}
                         </Badge>
                     </Group>
@@ -88,7 +95,6 @@ const capitalizeWord = (word: string) => {
         return word.toUpperCase()
     }
     else if (word.length > 2) {
-        console.log(word)
         return word.length ? word.charAt(0).toUpperCase() + word.slice(1) : word;
     }
     else {

@@ -11,8 +11,11 @@
   },
   "dependencies": {
     "@emotion/react": "^11.11.0",
+    "@mantine/carousel": "^6.0.11",
     "@mantine/core": "^6.0.11",
     "@mantine/hooks": "^6.0.11",
+    "embla-carousel-react": "^8.0.0-rc04",
+    "openai": "^3.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tabler-icons-react": "^1.56.0"

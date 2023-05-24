@@ -16,13 +16,13 @@ export default function TitleSection() {
             <Transition mounted={loaded} transition="fade" duration={4000} timingFunction="ease">
                 {(style) =>
                     <Group style={style}>
-                        <Canvas style={{ width: "100%", height: "100%" }} />
+                        <Canvas />
                     </Group>
                 }
             </Transition>
-            <Affix position={{ top: rem(20), right: rem(20) }}>
-                <ThemeButton style={{ position: "relative", top: "10px", right: "10px" }} />
-            </Affix>
+            <Group style={{ position: "absolute", top: "10px", right: "10px" }}>
+                <ThemeButton />
+            </Group>
             <Transition mounted={loaded} transition="slide-up" duration={1500} timingFunction="ease">
                 {(style) =>
                     <Group style={style}>
