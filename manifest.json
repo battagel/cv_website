@@ -6,7 +6,7 @@
       "src": "profile-pic.jpg",
       "sizes": "1024x1024",
       "type": "image/jpg"
-    },
+    }
   ],
   "start_url": ".",
   "display": "standalone",
