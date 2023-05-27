@@ -1,12 +1,19 @@
-import { Text, Button, Group, useMantineTheme } from "@mantine/core";
+import { Text, Button, Group, useMantineTheme, Stepper } from "@mantine/core";
 import { useState } from "react";
-import { Archive, BrandGithub, BrandLinkedin, InfoSquare } from "tabler-icons-react";
+import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Star } from "tabler-icons-react";
 
 export default function Navbar() {
     const theme = useMantineTheme();
-    const [active, setActive] = useState(1);
-    const nextStep = () => setActive((current) => (current < 3 ? current + 1 : current));
-    const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+    /* const [active, setActive] = useState(1);
+     * const nextStep = () => setActive((current) => (current < 4 ? current + 1 : current));
+     * const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
+     */
+    const smoothScrollTo = (id) => {
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+    }
 
     return (
         <Group position="center" p={7} style={{
@@ -18,11 +25,13 @@ export default function Navbar() {
             borderBottomRightRadius: "25px"
         }}>
             {/* <Stepper active={active} onStepClick={setActive} breakpoint="sm">
-                <Stepper.Step label="First step" description="Create an account">
+                <Stepper.Step label="Title">
                 </Stepper.Step>
-                <Stepper.Step label="Second step" description="Verify email">
+                <Stepper.Step label="Info">
                 </Stepper.Step>
-                <Stepper.Step label="Final step" description="Get full access">
+                <Stepper.Step label="Experience">
+                </Stepper.Step>
+                <Stepper.Step label="Projects">
                 </Stepper.Step>
                 <Stepper.Completed>
                 </Stepper.Completed>
@@ -34,38 +43,63 @@ export default function Navbar() {
             <Button.Group>
                 <Button color="blue"
                     variant={theme.colorScheme === 'dark' ? "light" : "white"}
-                    component="a"
+                    component="button"
                     radius="xl"
-                    href="#info"
+                    onClick={() => smoothScrollTo('title')}
+                    leftIcon={<ArrowAutofitUp size={20} />}>
+                    Top
+                </Button>
+                <Button color="blue"
+                    variant={theme.colorScheme === 'dark' ? "light" : "white"}
+                    component="button"
+                    radius="xl"
+                    onClick={() => smoothScrollTo('info')}
                     leftIcon={<InfoSquare size={20} />}>
                     Info
                 </Button>
                 <Button color="blue"
                     variant={theme.colorScheme === 'dark' ? "light" : "white"}
-                    component="a"
+                    component="button"
                     radius="xl"
-                    href="#experience"
+                    onClick={() => smoothScrollTo('experience')}
                     disabled
-                    leftIcon={<InfoSquare size={20} />}>
+                    leftIcon={<Brain size={20} />}>
                     Experience
                 </Button>
                 <Button color="blue"
                     variant={theme.colorScheme === 'dark' ? "light" : "white"}
-                    component="a"
+                    component="button"
                     radius="xl"
-                    href="#projects"
+                    onClick={() => smoothScrollTo('experience')}
+                    disabled
+                    leftIcon={<Star size={20} />}>
+                    Featured
+                </Button>
+                <Button color="blue"
+                    variant={theme.colorScheme === 'dark' ? "light" : "white"}
+                    component="button"
+                    radius="xl"
+                    onClick={() => smoothScrollTo('projects')}
                     leftIcon={<Archive size={20} />}>
                     Projects
                 </Button>
             </Button.Group>
             <Text color={theme.colorScheme === 'dark' ? "black" : "white"}>|</Text>
             <Button variant="gradient"
-                gradient={{ from: 'black', to: 'indigo' }}
+                gradient={{ from: 'black', to: theme.colors.indigo[9] }}
                 component="a"
                 radius="xl"
                 href="https://www.github.com/battagel"
                 leftIcon={<BrandGithub size={20} />}>
                 Github
+            </Button>
+            <Button variant="gradient"
+                gradient={{ from: 'pink', to: 'violet' }}
+                component="a"
+                radius="xl"
+                href="mailto:matthew@battagel.me.uk"
+                leftIcon={<Mail size={20} />}>
+                E-Mail
             </Button>
             <Button variant="gradient" gradient={{ from: 'blue', to: theme.colors.blue[8], deg: 90 }}
                 component="a"

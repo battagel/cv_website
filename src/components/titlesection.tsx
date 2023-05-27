@@ -1,7 +1,7 @@
-import { Affix, Image, Group, Stack, Title, Text, Transition, rem } from "@mantine/core";
+import { Image, Group, Stack, Title, Text, Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Canvas from "./canvas";
-import ThemeButton from "./ThemeButton";
+import ThemeButton from "./themebutton";
 
 export default function TitleSection() {
 
@@ -12,7 +12,7 @@ export default function TitleSection() {
     }, [])
 
     return (
-        <Group position="center" style={{ width: "100%", height: "65vh", backgroundColor: "white" }}>
+        <Group id="title" position="center" style={{ width: "100%", height: "65vh", backgroundColor: "white" }}>
             <Transition mounted={loaded} transition="fade" duration={4000} timingFunction="ease">
                 {(style) =>
                     <Group style={style}>
@@ -26,7 +26,7 @@ export default function TitleSection() {
             <Transition mounted={loaded} transition="slide-up" duration={1500} timingFunction="ease">
                 {(style) =>
                     <Group style={style}>
-                        <Image maw={200} src="profile-pic.jpg" radius="xl" />
+                        <Image maw={220} src="profile-pic.jpg" radius="xl" />
                         <Stack maw={500}>
                             <Title order={1}>Hi, I'm Matt...</Title>
                             <Text size="lg">I am a Junior Software Engineer with a passion for cool websites. Checkout some of my projects below.

@@ -8,11 +8,41 @@ export type Project = {
     homepage: string;
 };
 
-const languageColorMap = new Map([
-    ["python", "blue"],
-    ["tex", "red"],
-    ["go", "lightblue"],
-    ["cpp", "green"],
+const languageColorMap: Map<string, [string, string]> = new Map([
+    ["python", ["#3776AB", "#FFD43B"]],
+    ["jupyter-notebook", ["#F37626", "#FF9633"]],
+    ["javascript", ["#F7DF1E", "#DBAB09"]],
+    ["typescript", ["#3178C6", "#255597"]],
+    ["dockerfile", ["#0db7ed", "#094f6a"]],
+    ["html", ["#E34F26", "#f06529"]],
+    ["css", ["#1572B6", "#133f83"]],
+    ["c++", ["#00599C", "#F34B7D"]],
+    ["c", ["#555555", "#A8B9CC"]],
+    ["c#", ["#9B4F96", "#763072"]],
+    ["java", ["#007396", "#005570"]],
+    ["kotlin", ["#0095D5", "#006fa1"]],
+    ["swift", ["#FA7343", "#b55335"]],
+    ["ruby", ["#CC342D", "#991B1B"]],
+    ["php", ["#777BB4", "#595b8f"]],
+    ["go", ["#00ADD8", "#007b9e"]],
+    ["rust", ["#B7410E", "#8c3308"]],
+    ["scala", ["#DC322F", "#a0252c"]],
+    ["haskell", ["#5D4F85", "#FFD700"]],
+    ["r", ["#276DC3", "#1d52a2"]],
+    ["shell", ["#4EAA25", "#387619"]],
+    ["powershell", ["#012456", "#012456"]],
+    ["assembly", ["#6E4C13", "#523409"]],
+    ["objective-c", ["#438EFF", "#3366CC"]],
+    ["dart", ["#0175C2", "#014e8c"]],
+    ["elixir", ["#4B275F", "#371a45"]],
+    ["lua", ["#000080", "#00005a"]],
+    ["perl", ["#0298C3", "#01748B"]],
+    ["vim-script", ["#019733", "#016b25"]],
+    ["freemarker", ["#005C5C", "#003f3f"]],
+    ["makefile", ["#427819", "#325413"]],
+    ["common-lisp", ["#3FB68B", "#2f896b"]],
+    ["emacs lisp", ["#3F5FB9", "#2d45a1"]],
+    ["tex", ["#002B36", "#001c24"]],
 ]);
 
 export function ProjectCard({
@@ -27,6 +57,13 @@ export function ProjectCard({
     const secondaryColor =
         theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
+    const languageColorGradient = languageColorMap.get(language.toLowerCase());
+    let col1: string = "green";
+    let col2: string = "yellow";
+    if (languageColorGradient) {
+        [col1, col2] = languageColorGradient;
+    }
+
     return (
         <div style={{ width: "100%", margin: "auto" }}>
             <Card shadow="sm" p="lg" m="xs" style={{ height: "260px" }}>
@@ -39,7 +76,7 @@ export function ProjectCard({
                         }}
                     >
                         <Text weight={500}>{normaliseTitle(name)}</Text>
-                        <Badge color={languageColorMap.get(language)} variant="light">
+                        <Badge gradient={{ from: col1, to: col2 }} variant="gradient">
                             {language}
                         </Badge>
                     </Group>

@@ -4,6 +4,7 @@ import {
     SimpleGrid,
     useMantineTheme,
     Skeleton,
+    Title,
 } from "@mantine/core";
 import { ProjectCard, Project } from "./project";
 import { useEffect, useState } from "react";

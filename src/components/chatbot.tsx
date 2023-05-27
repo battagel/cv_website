@@ -16,9 +16,6 @@ type MessageType = {
 }
 
 export default function ChatBot() {
-    const defaultHistory = [
-
-    ]
     const [opened, { toggle, close }] = useDisclosure(true);
     const [popoverOpened, { toggle: poToggle, close: poClose }] = useDisclosure(true);
     const [messageHistory, setMessageHistory] = useState<MessageType[]>([{
@@ -87,14 +84,19 @@ export default function ChatBot() {
 
     return (
         <>
-            <Popover width="target" position="bottom" withArrow shadow="md" opened={popoverOpened}>
+            <Popover width="target" position="bottom" withArrow shadow="xl" opened={popoverOpened}>
                 <Popover.Target>
-                    <Dialog opened={opened} onClose={close} size="xs" radius="xl" p="xs" style={{ width: "auto" }}>
-                        <Button variant="light" onClick={() => {
-                            toggle();
-                            poClose();
-                        }} radius="xl">
-                            <Messages />
+                    <Dialog opened={opened} onClose={close} size="xl" radius={50} p="nil" style={{ width: "90px", height: "90px" }}>
+                        <Button variant="light"
+                            size="lg"
+                            radius={50}
+                            p="nil"
+                            style={{ width: "100%", height: "100%", paddingLeft: "0px", paddingRight: "0px", border: "1px" }}
+                            onClick={() => {
+                                toggle();
+                                poClose();
+                            }}>
+                            <Messages size={50} />
                         </Button>
                     </Dialog>
                 </Popover.Target>

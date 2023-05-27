@@ -13,6 +13,7 @@ import ChatBot from "./components/chatbot";
 import TitleSection from "./components/titlesection";
 import InfoSection from "./components/infosection";
 import Navbar from "./components/navbar";
+import FeaturedSection from "./components/featuredsection";
 
 export default function App() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -86,6 +87,11 @@ export default function App() {
                                 <InfoSection />
                             </Grid.Col>
                             <Grid.Col span={1}></Grid.Col>
+                            {/* <Grid.Col span={1}></Grid.Col>
+                            <Grid.Col span={10}>
+                                <FeaturedSection />
+                            </Grid.Col>
+                            <Grid.Col span={1}></Grid.Col> */}
                             <Grid.Col span={1}></Grid.Col>
                             <Grid.Col span={10}>
                                 <ProjectSection />

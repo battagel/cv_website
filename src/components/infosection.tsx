@@ -1,10 +1,9 @@
 import { Group, Stack, Image, Text, Title, useMantineTheme } from "@mantine/core";
 import { Carousel } from "@mantine/carousel";
-import img1 from '../../public/carousel/img1.jpg';
 
 export default function InfoSection() {
     const theme = useMantineTheme();
-    const images: string[] = [img1, img1]
+    const images: string[] = ["img2.jpg", "img3.jpg"]
 
     return (
         <Stack id="info" align="center" justify="flex-start" style={{
@@ -15,7 +14,17 @@ export default function InfoSection() {
             borderBottomRightRadius: "15px"
         }}>
             <Group spacing="xl" grow>
-                <Carousel p={20} slideSize="70%" slideGap="md">
+                <Carousel p={20}
+                    slideSize="70%"
+                    styles={{
+                        control: {
+                            '&[data-inactive]': {
+                                opacity: 0,
+                                cursor: 'default',
+                            },
+                        },
+                    }}
+                    slideGap="md">
                     {images.map((image: string, index: number) => (
                         <Carousel.Slide key={index}>
                             <Image src={image} />
