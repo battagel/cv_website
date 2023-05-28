@@ -4,9 +4,8 @@ import {
     SimpleGrid,
     useMantineTheme,
     Skeleton,
-    Title,
 } from "@mantine/core";
-import { ProjectCard, Project } from "./project";
+import { ProjectCard, Project } from "./Project";
 import { useEffect, useState } from "react";
 
 
@@ -31,7 +30,6 @@ export default function ProjectCards() {
                             language,
                             html_url,
                             homepage,
-                            ...theRest
                         } = project;
                         const subset: Project = {
                             name,
@@ -60,7 +58,6 @@ export default function ProjectCards() {
                         language,
                         html_url,
                         homepage,
-                        ...theRest
                     } = project;
                     const subset: Project = {
                         name,

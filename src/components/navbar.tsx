@@ -1,5 +1,4 @@
-import { Text, Button, Group, useMantineTheme, Stepper } from "@mantine/core";
-import { useState } from "react";
+import { Text, Button, Group, useMantineTheme } from "@mantine/core";
 import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Star } from "tabler-icons-react";
 
 export default function Navbar() {
@@ -8,7 +7,7 @@ export default function Navbar() {
      * const nextStep = () => setActive((current) => (current < 4 ? current + 1 : current));
      * const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
      */
-    const smoothScrollTo = (id) => {
+    const smoothScrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });

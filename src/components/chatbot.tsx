@@ -2,7 +2,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Dialog, Text, ScrollArea, Button, TextInput, Group, Stack, Popover, useMantineTheme } from '@mantine/core';
 import { Messages, Robot, User, X } from 'tabler-icons-react';
 import { useEffect, useRef, useState } from "react";
-import fetchBotReply from './openai';
+import fetchBotReply from './OpenAI';
 
 enum SenderType {
     USER = 'You',
@@ -17,7 +17,7 @@ type MessageType = {
 
 export default function ChatBot() {
     const [opened, { toggle, close }] = useDisclosure(true);
-    const [popoverOpened, { toggle: poToggle, close: poClose }] = useDisclosure(true);
+    const [popoverOpened, { toggle: _, close: poClose }] = useDisclosure(true);
     const [messageHistory, setMessageHistory] = useState<MessageType[]>([{
         sender: SenderType.BOT,
         message: "Hi there! I'm an AI powered chatbot that can answer any questions you have about Matt. Ask me anything!",
@@ -64,7 +64,7 @@ export default function ChatBot() {
     }
 
     const botReply = async (updatedHistory: MessageType[]) => {
-        const reply = await fetchBotReply(updatedHistory);
+        const reply = await fetchBotReply(updatedHistory)
         if (reply) {
             var newMessage: MessageType = {
                 sender: SenderType.BOT,

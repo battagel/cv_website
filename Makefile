@@ -17,3 +17,13 @@ build:
 .PHONY: run
 run: install
 	@$(YARN) run dev
+
+## predeploy: Prepare the website for deployment
+.PHONY: predeploy
+predeploy: install
+	@$(YARN) run predeploy
+
+## deploy: Deploy the website
+.PHONY: deploy
+deploy: install
+	@$(YARN) run deploy

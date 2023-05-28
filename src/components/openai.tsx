@@ -24,11 +24,11 @@ async function fetchBotReply(messageHistory: MessageType[]) {
     try {
         const response = await openai.createCompletion({
             model: "text-davinci-003",
-            messages: messages,
+            prompt: "debug",
             max_tokens: 10,
         });
 
-        return response.choices[0].message.content;
+        return response.data.choices[0].text;
     } catch (error) {
         console.error("Error during API request:", error);
     }

@@ -1,7 +1,7 @@
 import { Image, Group, Stack, Title, Text, Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
-import Canvas from "./canvas";
-import ThemeButton from "./themebutton";
+import Canvas from "./Canvas";
+import ThemeButton from "./ThemeButton";
 
 export default function TitleSection() {
 

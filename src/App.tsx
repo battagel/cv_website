@@ -7,13 +7,12 @@ import {
     Stack,
 } from "@mantine/core";
 import { useLocalStorage } from "@mantine/hooks";
-import ProjectSection from "./components/projectsection";
-import ScrollAffix from "./components/scrollaffix";
-import ChatBot from "./components/chatbot";
-import TitleSection from "./components/titlesection";
-import InfoSection from "./components/infosection";
-import Navbar from "./components/navbar";
-import FeaturedSection from "./components/featuredsection";
+import ProjectSection from "./components/ProjectSection";
+import ScrollAffix from "./components/ScrollAffix";
+import ChatBot from "./components/Chatbot";
+import TitleSection from "./components/TitleSection";
+import InfoSection from "./components/InfoSection";
+import Navbar from "./components/Navbar";
 
 export default function App() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -88,10 +87,10 @@ export default function App() {
                             </Grid.Col>
                             <Grid.Col span={1}></Grid.Col>
                             {/* <Grid.Col span={1}></Grid.Col>
-                            <Grid.Col span={10}>
+                                <Grid.Col span={10}>
                                 <FeaturedSection />
-                            </Grid.Col>
-                            <Grid.Col span={1}></Grid.Col> */}
+                                </Grid.Col>
+                                <Grid.Col span={1}></Grid.Col> */}
                             <Grid.Col span={1}></Grid.Col>
                             <Grid.Col span={10}>
                                 <ProjectSection />
