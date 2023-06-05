@@ -2,19 +2,18 @@ import {
     AppShell,
     ColorScheme,
     ColorSchemeProvider,
-    Grid,
     MantineProvider,
-    Stack,
 } from "@mantine/core";
+import { Grid, Stack } from "@mantine/core";
+import ScrollAffix from "../components/ScrollAffix";
+import ChatBot from "../components/Chatbot";
+import ProjectSection from "../components/ProjectSection";
+import InfoSection from "../components/InfoSection";
+import Navbar from "../components/Navbar";
+import TitleSection from "../components/TitleSection";
 import { useLocalStorage } from "@mantine/hooks";
-import ProjectSection from "./components/ProjectSection";
-import ScrollAffix from "./components/ScrollAffix";
-import ChatBot from "./components/Chatbot";
-import TitleSection from "./components/TitleSection";
-import InfoSection from "./components/InfoSection";
-import Navbar from "./components/Navbar";
 
-export default function App() {
+export default function Root() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
         key: "mantine-color-scheme",
         defaultValue: "light",
@@ -100,6 +99,7 @@ export default function App() {
                     </Stack>
                     <ChatBot />
                     <ScrollAffix />
+
                 </AppShell>
             </MantineProvider>
         </ColorSchemeProvider >
