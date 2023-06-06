@@ -1,6 +1,8 @@
 import { NavLink, Text, Navbar, ScrollArea, Title, Divider } from "@mantine/core"
 import { Home2, BrandChrome } from 'tabler-icons-react';
 import { useState } from "react";
+import { useLocation } from 'react-router-dom';
+
 
 const data = [
     { icon: Home2, label: 'Dashboard', href: "/help" },
@@ -10,6 +12,7 @@ const data = [
 export default function NavbarSection() {
 
     const [active, setActive] = useState(0);
+    const location = useLocation();
 
     const items = data.map((item, index) => (
         <NavLink
@@ -19,7 +22,7 @@ export default function NavbarSection() {
             icon={<item.icon size="1rem" stroke="1.5" />}
             onClick={() => setActive(index)}
             component="a"
-            href={item.href}
+            href={"/#" + item.href}
             color="teal"
         />
     ));
