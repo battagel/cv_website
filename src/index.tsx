@@ -4,14 +4,14 @@ import './index.css';
 /* import reportWebVitals from './reportWebVitals'; */
 
 import {
-    createBrowserRouter,
+    createHashRouter,
     RouterProvider,
 } from "react-router-dom";
 import Root from "./routes/Root";
 import Help from "./routes/help/Help";
 import Antonium from './routes/help/Antonium';
 
-const router = createBrowserRouter([
+const router = createHashRouter([
     {
         path: "/",
         element: <Root />,
