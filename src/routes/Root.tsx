@@ -12,7 +12,8 @@ import InfoSection from "../components/InfoSection";
 import Navbar from "../components/Navbar";
 import TitleSection from "../components/TitleSection";
 import { useLocalStorage } from "@mantine/hooks";
-import { NavigationProgress } from "@mantine/nprogress";
+import { NavigationProgress, nprogress } from "@mantine/nprogress";
+import { useEffect } from "react";
 
 export default function Root() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -24,6 +25,19 @@ export default function Root() {
         setColorScheme(value || (colorScheme === "dark" ? "light" : "dark"));
         console.log(colorScheme);
     }
+
+    useEffect(() => {
+        const handleScroll = () => {
+            const { scrollTop, scrollHeight, clientHeight } = document.documentElement;
+            const scrollPercentage = (scrollTop / (scrollHeight - clientHeight)) * 100;
+            nprogress.set(scrollPercentage);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     const columnBreakpoints: number[] = [450, 800, 1100, 1390, 1600];
 
@@ -63,7 +77,7 @@ export default function Root() {
                     other: { columnBreakpoints: columnBreakpoints },
                 }}
             >
-                <NavigationProgress />
+                <NavigationProgress color="blue" />
                 {" "}
                 <AppShell
                     padding="nil"
