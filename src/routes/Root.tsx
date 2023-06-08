@@ -12,6 +12,7 @@ import InfoSection from "../components/InfoSection";
 import Navbar from "../components/Navbar";
 import TitleSection from "../components/TitleSection";
 import { useLocalStorage } from "@mantine/hooks";
+import { NavigationProgress } from "@mantine/nprogress";
 
 export default function Root() {
     const [colorScheme, setColorScheme] = useLocalStorage<ColorScheme>({
@@ -62,6 +63,7 @@ export default function Root() {
                     other: { columnBreakpoints: columnBreakpoints },
                 }}
             >
+                <NavigationProgress />
                 {" "}
                 <AppShell
                     padding="nil"

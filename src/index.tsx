@@ -10,6 +10,7 @@ import {
 import Root from "./routes/Root";
 import Help from "./routes/help/Help";
 import Antonium from './routes/help/Antonium';
+import Dashboard from './routes/help/Dashboard';
 
 const router = createHashRouter([
     {
@@ -19,6 +20,16 @@ const router = createHashRouter([
     {
         path: "/help",
         element: <Help />
+    },
+    {
+        path: "/help",
+        element: <Help />,
+        children: [
+            {
+                path: "",
+                element: <Dashboard />
+            },
+        ],
     },
     {
         path: "/help",

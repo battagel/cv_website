@@ -77,11 +77,12 @@ const Canvas = () => {
     }, [theme.colorScheme]);
 
     return (
+        // +1 to fix 1px line at the bottom of the canvas
         <canvas
             ref={canvasRef}
             style={{ position: "absolute", top: 0, left: 0 }}
             width={window.innerWidth}
-            height={window.innerHeight * 0.65}
+            height={window.innerHeight * 0.65 + 1}
         />
     );
 };

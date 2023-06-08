@@ -1,12 +1,11 @@
 import { Text, Button, Group, useMantineTheme } from "@mantine/core";
-import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Star } from "tabler-icons-react";
+import { useScrollIntoView } from "@mantine/hooks";
+import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Notebook, Star } from "tabler-icons-react";
 
 export default function Navbar() {
     const theme = useMantineTheme();
-    /* const [active, setActive] = useState(1);
-     * const nextStep = () => setActive((current) => (current < 4 ? current + 1 : current));
-     * const prevStep = () => setActive((current) => (current > 0 ? current - 1 : current));
-     */
+
+    // TODO: Can be replaced with useScrollIntoView hook
     const smoothScrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
@@ -83,6 +82,14 @@ export default function Navbar() {
                     Projects
                 </Button>
             </Button.Group>
+            <Button color="blue"
+                variant={theme.colorScheme === 'dark' ? "light" : "white"}
+                component="a"
+                href="/#/help"
+                radius="xl"
+                leftIcon={<Notebook size={20} />}>
+                Documentation
+            </Button>
             <Text color={theme.colorScheme === 'dark' ? "black" : "white"}>|</Text>
             <Button variant="gradient"
                 gradient={{ from: 'black', to: theme.colors.indigo[9] }}
