@@ -75,13 +75,21 @@ const Canvas = () => {
             loop();
         }
     }, [theme.colorScheme]);
+    // Calculate the scrollbar width
+    const getScrollbarWidth = () => {
+        return window.innerWidth - document.documentElement.clientWidth;
+    };
+
+    // Calculate the canvas width, taking scrollbar into account
+    const canvasWidth = window.innerWidth - getScrollbarWidth();
+
 
     return (
         // +1 to fix 1px line at the bottom of the canvas
         <canvas
             ref={canvasRef}
             style={{ position: "absolute", top: 0, left: 0 }}
-            width={window.innerWidth}
+            width={canvasWidth}
             height={window.innerHeight * 0.65 + 1}
         />
     );

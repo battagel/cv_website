@@ -7,6 +7,7 @@ export default function InfoSection() {
 
     return (
         <Stack id="info" align="center" justify="flex-start" style={{
+            scrollMarginTop: "50px",
             width: "100%",
             height: "100%",
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[7] : theme.white,

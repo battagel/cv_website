@@ -1,5 +1,4 @@
 import { Text, Button, Group, useMantineTheme } from "@mantine/core";
-import { useScrollIntoView } from "@mantine/hooks";
 import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Notebook, Star } from "tabler-icons-react";
 
 export default function Navbar() {
@@ -9,7 +8,7 @@ export default function Navbar() {
     const smoothScrollTo = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
-            element.scrollIntoView({ behavior: 'smooth' });
+            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     }
 

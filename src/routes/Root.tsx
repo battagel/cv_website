@@ -11,6 +11,7 @@ import ProjectSection from "../components/ProjectSection";
 import InfoSection from "../components/InfoSection";
 import Navbar from "../components/Navbar";
 import TitleSection from "../components/TitleSection";
+import FooterSection from "../components/FooterSection";
 import { useLocalStorage } from "@mantine/hooks";
 import { NavigationProgress, nprogress } from "@mantine/nprogress";
 import { useEffect } from "react";
@@ -92,26 +93,27 @@ export default function Root() {
                     navbarOffsetBreakpoint={columnBreakpoints[0]}
                     fixed
                 >
-                    <Stack justify="flex-start" spacing="nil">
+                    <Stack justify="flex-start" spacing="nil" style={{ scrollMarginTop: "100px" }}>
                         <TitleSection />
                         <Navbar />
-                        <Grid>
-                            <Grid.Col span={1}></Grid.Col>
-                            <Grid.Col span={10}>
+                        <Grid style={{ width: "100%" }}>
+                            <Grid.Col p="nil" span={1}></Grid.Col>
+                            <Grid.Col p="nil" span={10}>
                                 <InfoSection />
                             </Grid.Col>
-                            <Grid.Col span={1}></Grid.Col>
+                            <Grid.Col p="nil" span={1}></Grid.Col>
                             {/* <Grid.Col span={1}></Grid.Col>
                                 <Grid.Col span={10}>
                                 <FeaturedSection />
                                 </Grid.Col>
                                 <Grid.Col span={1}></Grid.Col> */}
-                            <Grid.Col span={1}></Grid.Col>
-                            <Grid.Col span={10}>
+                            <Grid.Col p="nil" span={1}></Grid.Col>
+                            <Grid.Col p="nil" span={10}>
                                 <ProjectSection />
                             </Grid.Col>
-                            <Grid.Col span={1}></Grid.Col>
+                            <Grid.Col p="nil" span={1}></Grid.Col>
                         </Grid>
+                        {/* <FooterSection /> */}
                     </Stack>
                     <ChatBot />
                     <ScrollAffix />

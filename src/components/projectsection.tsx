@@ -77,6 +77,7 @@ export default function ProjectCards() {
     return (
         <SimpleGrid
             id="projects"
+            style={{ scrollMarginTop: "50px" }}
             cols={5}
             spacing="lg"
             breakpoints={[
