@@ -2,10 +2,12 @@ import { Image, Group, Stack, Title, Text, Transition } from "@mantine/core";
 import { useEffect, useState } from "react";
 import Canvas from "./Canvas";
 import ThemeButton from "./ThemeButton";
+import CanvasEditor from "./CanvasEditor";
 
 export default function TitleSection() {
 
     const [loaded, setLoaded] = useState<boolean>(false);
+
 
     useEffect(() => {
         setLoaded(true)
@@ -21,6 +23,7 @@ export default function TitleSection() {
                 }
             </Transition>
             <Group style={{ position: "absolute", top: "10px", right: "10px" }}>
+                <CanvasEditor />
                 <ThemeButton />
             </Group>
             <Transition mounted={loaded} transition="slide-up" duration={1500} timingFunction="ease">
@@ -29,7 +32,7 @@ export default function TitleSection() {
                         <Image maw={220} src="profile-pic.jpg" radius="xl" />
                         <Stack maw={500}>
                             <Title order={1}>Hi, I'm Matt...</Title>
-                            <Text size="lg">I am a Junior Software Engineer with a passion for cool websites. Checkout some of my projects below.
+                            <Text size="lg">I am a Software Engineer with a passion for cool websites. Checkout some of my personal projects below.
                             </Text>
                         </Stack>
                     </Group>

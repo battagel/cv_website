@@ -1,14 +1,17 @@
 import { useRef, useEffect } from "react";
 import { useMantineTheme } from "@mantine/core";
+import { useLocalStorage } from "@mantine/hooks";
 
 const Canvas = () => {
     const theme = useMantineTheme();
     const canvasRef = useRef<HTMLCanvasElement>(null);
-    const numberOfSquares = 150;
-    const averageSize = 30;
+    const canvasPercentage = 0.65;
+    const [shape, setShape] = useLocalStorage<number>({ key: 'canvas-shape', defaultValue: 1 });
+    const [averageSize, setAverageSize] = useLocalStorage<number>({ key: 'canvas-size', defaultValue: 30 });
+    const [maxSpeed, setMaxSpeed] = useLocalStorage<number>({ key: 'canvas-speed', defaultValue: 1 });
+    const [maxRotationSpeed, setMaxRotationSpeed] = useLocalStorage<number>({ key: 'canvas-rotation-speed', defaultValue: 0.01 });
+    const [numberOfSquares, setNumberOfSquares] = useLocalStorage<number>({ key: 'canvas-object-number', defaultValue: 150 });
     const sizeChange = 40;
-    const maxSpeed = 1;
-    const maxRotationSpeed = 0.01;
 
     useEffect(() => {
         const squareColour = theme.colorScheme === 'dark' ? "white" : "gray";
@@ -37,14 +40,88 @@ const Canvas = () => {
                         context.translate(square.x + square.size / 2, square.y + square.size / 2);
                         context.rotate(square.rotation);
                         context.strokeStyle = squareColour;
-                        if (theme.colorScheme === 'dark') {
-                            // draw circle in dark mode
-                            context.beginPath();
-                            context.arc(0, 0, square.size / 2, 0, Math.PI * 2);
-                            context.stroke();
-                        } else {
-                            // draw square in light mode
-                            context.strokeRect(-square.size / 2, -square.size / 2, square.size, square.size);
+                        switch (shape) {
+                            case 1:
+                                // Draw circle
+                                context.beginPath();
+                                context.arc(0, 0, square.size / 2, 0, Math.PI * 2);
+                                context.stroke();
+                                break;
+                            case 2:
+                                // Draw triangle
+                                context.beginPath();
+                                context.moveTo(-square.size / 2, square.size / 2);
+                                context.lineTo(square.size / 2, square.size / 2);
+                                context.lineTo(0, -square.size / 2);
+                                context.closePath();
+                                context.stroke();
+                                break;
+                            case 3:
+                                // Draw square
+                                context.strokeRect(
+                                    -square.size / 2,
+                                    -square.size / 2,
+                                    square.size,
+                                    square.size
+                                );
+                                break;
+                            case 4:
+                                // Draw star
+                                context.beginPath();
+                                context.moveTo(0, -square.size / 2);
+                                context.lineTo(square.size / 3, square.size / 2);
+                                context.lineTo(-square.size / 2, -square.size / 6);
+                                context.lineTo(square.size / 2, -square.size / 6);
+                                context.lineTo(-square.size / 3, square.size / 2);
+                                context.closePath();
+                                context.stroke();
+                                break;
+                            case 5:
+                                // Draw heart
+                                const curveOffset = square.size / 4;
+                                const topCurveHeight = square.size / 2 - curveOffset;
+                                const bottomCurveHeight = square.size / 2;
+
+                                context.beginPath();
+                                context.moveTo(0, -topCurveHeight);
+                                context.bezierCurveTo(
+                                    curveOffset,
+                                    -topCurveHeight,
+                                    square.size / 2,
+                                    -curveOffset,
+                                    square.size / 2,
+                                    0
+                                );
+                                context.bezierCurveTo(
+                                    square.size / 2,
+                                    curveOffset,
+                                    curveOffset,
+                                    topCurveHeight,
+                                    0,
+                                    bottomCurveHeight
+                                );
+                                context.bezierCurveTo(
+                                    -curveOffset,
+                                    topCurveHeight,
+                                    -square.size / 2,
+                                    curveOffset,
+                                    -square.size / 2,
+                                    0
+                                );
+                                context.bezierCurveTo(
+                                    -square.size / 2,
+                                    -curveOffset,
+                                    -curveOffset,
+                                    -topCurveHeight,
+                                    0,
+                                    -topCurveHeight
+                                );
+                                context.closePath();
+                                context.stroke();
+                                break;
+                            default:
+                                console.error("Invalid shape");
+                                break;
                         }
                         context.restore();
                     });
@@ -74,7 +151,7 @@ const Canvas = () => {
 
             loop();
         }
-    }, [theme.colorScheme]);
+    }, [theme.colorScheme, shape, averageSize, maxSpeed, maxRotationSpeed, numberOfSquares]);
     // Calculate the scrollbar width
     const getScrollbarWidth = () => {
         return window.innerWidth - document.documentElement.clientWidth;
@@ -90,7 +167,7 @@ const Canvas = () => {
             ref={canvasRef}
             style={{ position: "absolute", top: 0, left: 0 }}
             width={canvasWidth}
-            height={window.innerHeight * 0.65 + 1}
+            height={window.innerHeight * canvasPercentage + 1}
         />
     );
 };

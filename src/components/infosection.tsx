@@ -3,7 +3,7 @@ import { Carousel } from "@mantine/carousel";
 
 export default function InfoSection() {
     const theme = useMantineTheme();
-    const images: string[] = ["img2.jpg", "img3.jpg"]
+    const images: string[] = ["img2.jpg", "img5.jpg", "img6.jpg", "img7.jpg", "img3.jpg"]
 
     return (
         <Stack id="info" align="center" justify="flex-start" style={{
@@ -34,8 +34,9 @@ export default function InfoSection() {
                 </Carousel>
                 <Stack p={70}>
                     <Title>Welcome to my website!</Title>
-                    <Text>As a passionate Software Engineer at Hewlett Packard Enterprise, I take great pride in creating effective solutions that impact our daily lives. My journey commenced when I graduated from Cardiff University in 2023, a milestone that laid a solid foundation for my career in programming and engineering. Today, I continue to immerse myself in the dynamic field of technology, motivated by the endless opportunities and challenges it presents.</Text>
-                    <Text>When I'm not crafting code, you're likely to find me in the heart of community life, enjoying a lively pub trip with friends. These moments remind me of the value of companionship and shared stories, offering a well-rounded balance to my professional pursuits. At home, life is just as lively with my Labradoodle, Noodle, who never fails to brighten up my day. As I continue my journey, I look forward to the innovations and experiences that lie ahead, both in the field of software engineering and in the simple joys of everyday life.</Text>
+                    <Text>As a passionate software engineer currently working at Hewlett Packard Enterprise, I take great pride in creating effective solutions that impact our daily lives. I graduated from Cardiff University in 2023, where I achieved a first-grade undergraduate degree. Today, I continue to gain knowledge by experimenting with personal passion projects, such as this very website! Take a look below at the other interesting projects I have on my public Github.</Text>
+                    <Text>This website contains a few additional features that you can try out, such as the ability to toggle between a light and dark color scheme. I hate light mode! Why not try customizing the title screen animation? Use the edit canvas button to change between different types of shapes, adjust the number of objects, or modify their speed and size.</Text>
+                    <Text>In additon to my virtual projects, I am also in the process of converting a 2016 Mercedes Sprinter into a campervan. All my notes and documentation are available under my van project repository.</Text>
                 </Stack>
             </Group>
 
