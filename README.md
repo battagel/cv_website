@@ -1,6 +1,7 @@
-# Project Portfolio Website by Matthew Battagel 
+# Project Portfolio Website by Matthew Battagel
 
 This website can be found at:
+
 ```
 matthewbattagel.co.uk
 ```
@@ -11,11 +12,25 @@ This website takes all my public repositories and my starred repos (for when I w
 
 ## Why this website?
 
-I wanted to create a portfolio website to show off the web development skills I have learnt in the last few years. I also decided to jump on the hype of learning React and TypeScript together as they seem like powerful tools for such a purpose. Instantly I fell in love with how React handles UI componets and uses useStates for dynamically changing data. 
+I wanted to create a portfolio website to show off the web development skills I have learnt in the last few years. I also decided to jump on the hype of learning React and TypeScript together as they seem like powerful tools for such a purpose. Instantly I fell in love with how React handles UI componets and uses useStates for dynamically changing data.
 
-TypeScript was harder to learn for me as I was used to working with weakly typed languages like Python however once I understood the main ways of using types I much prefer coding this way. 
+TypeScript was harder to learn for me as I was used to working with weakly typed languages like Python however once I understood the main ways of using types I much prefer coding this way.
 
-I also wanted to try my hand at getting the website hosted myself as nowerdays most people rely on websites like wix and GoDaddy for end to end website creation. Doing all of this myself, I thought, was a good learning opportunity to work with a DNS and how to organise a release of a website. 
+I also wanted to try my hand at getting the website hosted myself as nowerdays most people rely on websites like wix and GoDaddy for end to end website creation. Doing all of this myself, I thought, was a good learning opportunity to work with a DNS and how to organise a release of a website.
 
 I ended up purchasing my domain from GoDaddy and hosting this website on GitHub Pages.
 
+## How to deploy the website
+
+To run the website locally use:
+
+```shell
+yarn dev
+```
+
+You can deploy the website to Github pages by using the following commands:
+
+```shell
+yarn build
+make deploy
+```
