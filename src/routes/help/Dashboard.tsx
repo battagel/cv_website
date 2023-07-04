@@ -5,7 +5,7 @@ const data = [
         title: "Antonium",
         image: "antonium-logo.png",
         description: "A browser extension for explaining jargon and abbreviations.",
-        badge: "v3.0.0",
+        badge: "v3.2.0",
         href: "/#/help/antonium",
     },
 ];
