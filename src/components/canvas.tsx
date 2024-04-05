@@ -44,7 +44,11 @@ const Canvas = () => {
                             case 1:
                                 // Draw circle
                                 context.beginPath();
-                                context.arc(0, 0, square.size / 2, 0, Math.PI * 2);
+                                try {
+                                    context.arc(0, 0, square.size / 2, 0, Math.PI * 2);
+                                } catch (e) {
+                                    // Its negative, mistakens happen ¯\_(ツ)_/¯
+                                }
                                 context.stroke();
                                 break;
                             case 2:
