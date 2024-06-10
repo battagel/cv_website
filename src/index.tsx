@@ -7,10 +7,10 @@ import {
     createHashRouter,
     RouterProvider,
 } from "react-router-dom";
-import Root from "./routes/Root";
-import Help from "./routes/help/Help";
-import Antonium from './routes/help/Antonium';
-import Dashboard from './routes/help/Dashboard';
+import Root from "./routes/root";
+import Help from "./routes/help/help";
+import Antonium from './routes/help/antonium';
+import Dashboard from './routes/help/dashboard';
 
 const router = createHashRouter([
     {

@@ -1,4 +1,4 @@
-import { Text, Image, SimpleGrid, Paper, Stack, Title, Button, Group, Card, Badge } from "@mantine/core";
+import { Text, Image, SimpleGrid, Stack, Title, Button, Group, Card, Badge } from "@mantine/core";
 
 const data = [
     {

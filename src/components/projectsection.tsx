@@ -5,7 +5,7 @@ import {
     useMantineTheme,
     Skeleton,
 } from "@mantine/core";
-import { ProjectCard, Project } from "./Project";
+import { ProjectCard, Project } from "./project";
 import { useEffect, useState } from "react";
 
 

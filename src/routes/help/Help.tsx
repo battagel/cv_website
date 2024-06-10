@@ -1,5 +1,5 @@
-import { AppShell, ColorScheme, ColorSchemeProvider, MantineProvider, Stack } from "@mantine/core";
-import NavbarSection from "./Navbar";
+import { AppShell, ColorScheme, ColorSchemeProvider, MantineProvider} from "@mantine/core";
+import NavbarSection from "./navbar";
 import { Outlet } from "react-router-dom";
 import { useLocalStorage } from "@mantine/hooks";
 

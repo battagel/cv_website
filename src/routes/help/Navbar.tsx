@@ -1,5 +1,5 @@
 import { NavLink, Text, Navbar, ScrollArea, Title, Divider, Group } from "@mantine/core"
-import { Home2, BrandChrome } from 'tabler-icons-react';
+import { Home2 } from 'tabler-icons-react';
 import { useLocation } from 'react-router-dom';
 import ThemeButton from "../../components/themebutton";
 

@@ -2,7 +2,7 @@ import { useDisclosure } from '@mantine/hooks';
 import { Dialog, Text, ScrollArea, Button, TextInput, Group, Stack, Popover, useMantineTheme } from '@mantine/core';
 import { Messages, Robot, User, X } from 'tabler-icons-react';
 import { useEffect, useRef, useState } from "react";
-import fetchBotReply from './OpenAI';
+import fetchBotReply from './openai';
 
 enum SenderType {
     USER = 'You',
