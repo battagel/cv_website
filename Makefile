@@ -10,7 +10,7 @@ help:
 
 ## install: Install all dependencies
 .PHONY: install
-build:
+install:
 	@$(YARN) install
 
 ## run: Run the binary
