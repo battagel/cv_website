@@ -1,4 +1,4 @@
-import { Text, Title, Button, List, Stack, Anchor } from '@mantine/core';
+import { Text, Title, Stack, Anchor } from '@mantine/core';
 
 export default function Antonium() {
     return (
@@ -47,9 +47,9 @@ export default function Antonium() {
             <Text>The data is handled by a data model where all data is contained within a hash
                 map. Helper functions are provided to access the data.</Text>
 
-            <Title order={4}> Database
-                Using Dexie.js, bulk puts and gets can be used to speed up reloading the page on
-                the same domain.</Title>
+            <Title order={4}> Database</Title>
+            <Text>Using Dexie.js, bulk puts and gets can be used to speed up reloading the page on
+                the same domain.</Text>
 
             <Title order={4}> Processing </Title>
             <Text>Page processor locates the words on a page and then the html processor edits the

@@ -21,7 +21,7 @@ export default function ProjectCards() {
             .then((res) => res.json())
             .then(
                 (result: any) => {
-                    var tempProjectList: Project[] = [];
+                    let tempProjectList: Project[] = [];
                     //sleep(100);
                     result.map((project: any) => {
                         const {
@@ -30,6 +30,7 @@ export default function ProjectCards() {
                             language,
                             html_url,
                             homepage,
+                            fork,
                         } = project;
                         const subset: Project = {
                             name,
@@ -37,6 +38,7 @@ export default function ProjectCards() {
                             language,
                             html_url,
                             homepage,
+                            fork,
                         };
                         tempProjectList = [...tempProjectList, subset];
                     });
@@ -49,7 +51,7 @@ export default function ProjectCards() {
         fetch("https://api.github.com/users/battagel/starred")
             .then((res) => res.json())
             .then((result: any) => {
-                var tempProjectList: Project[] = [];
+                let tempProjectList: Project[] = [];
                 //sleep(100);
                 result.map((project: any) => {
                     const {
@@ -58,6 +60,7 @@ export default function ProjectCards() {
                         language,
                         html_url,
                         homepage,
+                        fork,
                     } = project;
                     const subset: Project = {
                         name,
@@ -65,6 +68,7 @@ export default function ProjectCards() {
                         language,
                         html_url,
                         homepage,
+                        fork,
                     };
                     tempProjectList = [...tempProjectList, subset];
                 });
@@ -78,8 +82,8 @@ export default function ProjectCards() {
         <SimpleGrid
             id="projects"
             style={{ scrollMarginTop: "50px" }}
-            cols={5}
-            spacing="lg"
+            cols={4}
+            spacing="md"
             breakpoints={[
                 { maxWidth: theme.other.columnBreakpoints[4], cols: 4, spacing: "sm" },
                 { maxWidth: theme.other.columnBreakpoints[3], cols: 3, spacing: "sm" },

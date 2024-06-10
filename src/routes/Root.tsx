@@ -5,13 +5,15 @@ import {
     MantineProvider,
 } from "@mantine/core";
 import { Grid, Stack } from "@mantine/core";
-import ScrollAffix from "../components/ScrollAffix";
-import ChatBot from "../components/Chatbot";
-import ProjectSection from "../components/ProjectSection";
-import InfoSection from "../components/InfoSection";
-import Navbar from "../components/Navbar";
-import TitleSection from "../components/TitleSection";
-import FooterSection from "../components/FooterSection";
+import Navbar from "../components/navbar";
+import TitleSection from "../components/titlesection";
+import InfoSection from "../components/infosection";
+import ExperienceSection from "../components/experiencesection";
+import FeaturedSection from "../components/featuredsection";
+import ProjectSection from "../components/projectsection";
+import ChatBot from "../components/chatbot";
+import ScrollAffix from "../components/scrollaffix";
+import FooterSection from "../components/footersection";
 import { useLocalStorage } from "@mantine/hooks";
 import { NavigationProgress, nprogress } from "@mantine/nprogress";
 import { useEffect } from "react";
@@ -97,25 +99,30 @@ export default function Root() {
                         <TitleSection />
                         <Navbar />
                         <Grid style={{ width: "100%" }}>
-                            <Grid.Col p="nil" span={1}></Grid.Col>
-                            <Grid.Col p="nil" span={10}>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col p={0} span={10} m={0}>
                                 <InfoSection />
                             </Grid.Col>
-                            <Grid.Col p="nil" span={1}></Grid.Col>
-                            {/* <Grid.Col span={1}></Grid.Col>
-                                <Grid.Col span={10}>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col p={0} span={10} style={{paddingLeft: "50px", paddingRight: "50px"}}>
+                                <ExperienceSection />
+                            </Grid.Col>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col span={1}></Grid.Col>
+                            <Grid.Col p={0} span={10} style={{marginBottom: "20px"}}>
                                 <FeaturedSection />
-                                </Grid.Col>
-                                <Grid.Col span={1}></Grid.Col> */}
-                            <Grid.Col p="nil" span={1}></Grid.Col>
-                            <Grid.Col p="nil" span={10}>
+                            </Grid.Col>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col p={0} span={1}></Grid.Col>
+                            <Grid.Col p={0} span={10}>
                                 <ProjectSection />
                             </Grid.Col>
-                            <Grid.Col p="nil" span={1}></Grid.Col>
+                            <Grid.Col p={0} span={1}></Grid.Col>
                         </Grid>
                         {/* <FooterSection /> */}
                     </Stack>
-                    <ChatBot />
+                    {/* <ChatBot /> */}
                     <ScrollAffix />
 
                 </AppShell>
