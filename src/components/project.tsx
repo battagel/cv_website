@@ -6,6 +6,7 @@ export type Project = {
     language: string;
     html_url: string;
     homepage: string;
+    fork: boolean;
 };
 
 const languageColorMap: Map<string, [string, string]> = new Map([
@@ -51,13 +52,17 @@ export function ProjectCard({
     language,
     html_url,
     homepage,
+    fork,
 }: Project) {
     const theme = useMantineTheme();
 
     const secondaryColor =
         theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
-    const languageColorGradient = languageColorMap.get(language.toLowerCase());
+    let languageColorGradient = undefined;
+    if (language) {
+        languageColorGradient = languageColorMap.get(language.toLowerCase());
+    }
     let col1: string = "green";
     let col2: string = "yellow";
     if (languageColorGradient) {
@@ -76,9 +81,16 @@ export function ProjectCard({
                         }}
                     >
                         <Text weight={500}>{normaliseTitle(name)}</Text>
+                        {!fork && (
                         <Badge gradient={{ from: col1, to: col2 }} variant="gradient">
                             {language}
                         </Badge>
+                        )}
+                        {fork && (
+                        <Badge color="gray" variant="filled">
+                            Forked
+                        </Badge>
+                        )}
                     </Group>
 
                     <Text
