@@ -1,16 +1,9 @@
 import { Text, Button, Group, useMantineTheme } from "@mantine/core";
 import { Archive, ArrowAutofitUp, Brain, BrandGithub, BrandLinkedin, InfoSquare, Mail, Notebook, Star } from "tabler-icons-react";
+import { smoothScrollTo } from "./utils";
 
 export default function Navbar() {
     const theme = useMantineTheme();
-
-    // TODO: Can be replaced with useScrollIntoView hook
-    const smoothScrollTo = (id: string) => {
-        const element = document.getElementById(id);
-        if (element) {
-            element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
-    }
 
     return (
         <Group position="center" p={7} style={{
@@ -18,8 +11,6 @@ export default function Navbar() {
             top: 0,
             zIndex: 1,
             backgroundColor: theme.colorScheme === 'dark' ? theme.colors.dark[5] : theme.colors.gray[3],
-            borderBottomLeftRadius: "25px",
-            borderBottomRightRadius: "25px"
         }}>
             {/* <Stepper active={active} onStepClick={setActive} breakpoint="sm">
                 <Stepper.Step label="Title">
@@ -59,7 +50,6 @@ export default function Navbar() {
                     component="button"
                     radius="xl"
                     onClick={() => smoothScrollTo('experience')}
-                    disabled
                     leftIcon={<Brain size={20} />}>
                     Experience
                 </Button>
@@ -67,8 +57,7 @@ export default function Navbar() {
                     variant={theme.colorScheme === 'dark' ? "light" : "white"}
                     component="button"
                     radius="xl"
-                    onClick={() => smoothScrollTo('experience')}
-                    disabled
+                    onClick={() => smoothScrollTo('featured')}
                     leftIcon={<Star size={20} />}>
                     Featured
                 </Button>
