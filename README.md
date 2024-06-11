@@ -8,7 +8,7 @@ matthewbattagel.co.uk
 
 ## What is this website?
 
-This website takes all my public repositories and my starred repos (for when I work on a project that I dont own) using GitHub's API and collates them into individual cards for display purposes. This is to better show the range of projects I have worked on while also being inside of one!
+This website takes all my public, forked and starred repositories using GitHub's API and collates them into individual cards for display purposes. This is to better show the range of projects I have worked on / am interested in while also being inside of one!
 
 ## Why this website?
 
@@ -18,19 +18,22 @@ TypeScript was harder to learn for me as I was used to working with weakly typed
 
 I also wanted to try my hand at getting the website hosted myself as nowerdays most people rely on websites like wix and GoDaddy for end to end website creation. Doing all of this myself, I thought, was a good learning opportunity to work with a DNS and how to organise a release of a website.
 
-I ended up purchasing my domain from GoDaddy and hosting this website on GitHub Pages.
+I ended up purchasing my domain from GoDaddy and hosting this website on Github Pages.
 
-## How to deploy the website
+## Development
 
-To run the website locally use:
-
+### Running the Website Locally
 ```shell
-yarn dev
+make run
 ```
 
-You can deploy the website to Github pages by using the following commands:
-
+### Deploy
 ```shell
-yarn build
 make deploy
 ```
+
+### Feature Ideas
+- Github actions for deployment
+- Example featured section
+- Re-do style / colour theme
+- Better canvas animation
