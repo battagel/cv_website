@@ -1,40 +1,72 @@
-# Project Portfolio Website by Matthew Battagel
+# Portfolio Website by Matthew Battagel
 
-This website can be found at:
+Live at: **[matthewbattagel.co.uk](https://matthewbattagel.co.uk)**
 
-```text
-matthewbattagel.co.uk
-```
+## About
 
-## What is this website?
+A personal portfolio website showcasing my work, interests, and experience as a software engineer. Built with React, TypeScript, and Vite, featuring a config-driven architecture that makes content updates simple and maintainable.
 
-This website takes all my public, forked and starred repositories using GitHub's API and collates them into individual cards for display purposes. This is to better show the range of projects I have worked on / am interested in while also being inside of one!
+## Features
 
-## Why this website?
+- **Hero Section** - Dynamic typing animation with rotating tech jokes
+- **About Section** - Professional bio with photo carousel
+- **Featured Projects** - Curated showcase of key projects
+- **GitHub Feed** - Real-time integration displaying public repositories
+- **Spotlight Sections** - Flexible content areas for additional highlights
+- **Responsive Design** - Mobile-first approach with modern UI
 
-I wanted to create a portfolio website to show off the web development skills I have learnt in the last few years. I also decided to jump on the hype of learning React and TypeScript together as they seem like powerful tools for such a purpose. Instantly I fell in love with how React handles UI componets and uses useStates for dynamically changing data.
+## Tech Stack
 
-TypeScript was harder to learn for me as I was used to working with weakly typed languages like Python however once I understood the main ways of using types I much prefer coding this way.
+- **React** - UI component framework
+- **TypeScript** - Type-safe development
+- **Vite** - Fast build tool and dev server
+- **GitHub Pages** - Static site hosting
+- **GitHub API** - Repository data integration
 
-I also wanted to try my hand at getting the website hosted myself as nowerdays most people rely on websites like wix and GoDaddy for end to end website creation. Doing all of this myself, I thought, was a good learning opportunity to work with a DNS and how to organise a release of a website.
+## Configuration
 
-I ended up purchasing my domain from GoDaddy and hosting this website on Github Pages.
+All content is managed through a single `src/config.ts` file, making it easy to update personal information, navigation, project details, and section content without touching component code.
 
 ## Development
 
-### Running the Website Locally
-```shell
+### Prerequisites
+
+```sh
+node >= 18
+npm >= 9
+```
+
+### Running Locally
+
+```sh
+npm install
 npm run dev
 ```
 
-### Deploy
-```shell
+### Deploy to GitHub Pages
+
+```sh
 npm run build
-make deploy
+npm run deploy
 ```
 
-### Feature Ideas
-- Github actions for deployment
-- Example featured section
-- Re-do style / colour theme
-- Better canvas animation
+The deploy script builds the site and pushes to the `gh-pages` branch.
+
+## Version History
+
+### v3 (Current)
+Complete architectural redesign with a config-driven approach. Introduced modular sections, unified configuration, and improved UI components including typed text animations, photo carousels, and GitHub API integration.
+
+### v2
+Enhanced version with routing capabilities using React Router. Added dedicated help pages and improved navigation structure. Experimented with additional features like canvas animations and chatbot integration.
+
+### v1
+Initial portfolio built with React and TypeScript to learn modern web development. Focused on displaying GitHub repositories using the GitHub API with simple card-based layouts. First experience with domain registration, DNS configuration, and GitHub Pages deployment.
+
+## Why This Project?
+
+I built this portfolio to develop skills in React and TypeScript while creating something genuinely useful. Starting from basic repository cards, it evolved through multiple iterations as I learned more about component architecture, state management, and user experience design.
+
+The config-driven v3 architecture reflects lessons learned about maintainability—separating content from code makes updates effortless and reduces the chance of breaking changes. Each version taught me something new about web development, from TypeScript's type system to React's component patterns.
+
+Hosting on GitHub Pages taught me about deployment pipelines, DNS configuration, and the full lifecycle of releasing a web application. The project continues to be a testbed for new ideas and techniques.
