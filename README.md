@@ -2,7 +2,7 @@
 
 This website can be found at:
 
-```
+```text
 matthewbattagel.co.uk
 ```
 
@@ -24,11 +24,12 @@ I ended up purchasing my domain from GoDaddy and hosting this website on Github 
 
 ### Running the Website Locally
 ```shell
-make run
+npm run dev
 ```
 
 ### Deploy
 ```shell
+npm run build
 make deploy
 ```
 
